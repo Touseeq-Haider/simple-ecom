@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,5 +30,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // Category CRUD
     Route::resource('categories', CategoryController::class);
 });
+// 
+Route::resource('admin/products', App\Http\Controllers\Admin\ProductController::class);
+// 
+Route::resource('admin/products', ProductController::class);
 
 require __DIR__.'/auth.php';
